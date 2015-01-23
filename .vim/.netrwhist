@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/Users/acoleman/repos/ansible-config/playbooks/roles/proxy-ring'
+let g:netrw_dirhist_2='/Users/acoleman/repos/ansible-config/playbooks/roles/proxy-ext/templates'
+let g:netrw_dirhist_3='/Users/acoleman/repos/ansible-config/inventory'
+let g:netrw_dirhist_4='/Users/acoleman/repos/ansible-config/playbooks/roles/cruby/tasks'
+let g:netrw_dirhist_5='/Users/acoleman/repos/minotaur/waitlist_svc'
+let g:netrw_dirhist_6='/Users/acoleman/repos/ansible-config/playbooks/roles/tc-app'
+let g:netrw_dirhist_7='/Users/acoleman/repos/ansible-config/inventory'
+let g:netrw_dirhist_8='/Users/acoleman/repos/ansible-config/playbooks/roles/proxy-ext/templates/sites-available'
+let g:netrw_dirhist_9='/Users/acoleman/.vim'
