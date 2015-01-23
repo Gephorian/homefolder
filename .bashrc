@@ -3,11 +3,6 @@
 
 source .bashrc.d/*
 
-export IRCNICK=gephorian
-export IRCNAME=gephorian
-export IRCSERVER=irc.drunkserver.com
-export IRCSERVERSFILE=/Users/acoleman/.ircservers
-
 export ANSIBLE_HOST_KEY_CHECKING=False
 
 alias ll='ls -lG'
