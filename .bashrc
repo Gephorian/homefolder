@@ -1,14 +1,7 @@
 #[[ $- != *i* ]] && return
 #[[ -z "$TMUX" ]] && exec tmux
 
-export AWS_ACCESS_KEY_ID=AKIAJ75VQH6X6QU5TPBA
-export AWS_SECRET_ACCESS_KEY=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
-export AWS_DEFAULT_REGION=us-east-1
-export EC2_INI_PATH=~/ec2.ini
-
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/acoleman/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
+source .bashrc.d/*
 
 export IRCNICK=gephorian
 export IRCNAME=gephorian
