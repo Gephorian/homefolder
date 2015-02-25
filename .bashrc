@@ -1,7 +1,12 @@
 #[[ $- != *i* ]] && return
 #[[ -z "$TMUX" ]] && exec tmux
 
-source .bashrc.d/*
+
+if [ -d ~/.bashrc.d ]; then
+  for file in ~/.bashrc.d/* ; do
+	  . $file
+  done
+fi
 
 export ANSIBLE_HOST_KEY_CHECKING=False
 
