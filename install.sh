@@ -48,3 +48,4 @@ install .tmux.conf
 install .vim
 install .viminfo
 install .vimrc
+install .gitconfig
