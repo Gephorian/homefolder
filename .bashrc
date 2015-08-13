@@ -8,7 +8,7 @@ if [ -d ~/.bashrc.d ]; then
   done
 fi
 
-alias ll='ls -lG'
+alias ll='ls -lG --color=auto'
 __git_ps1(){
 __BRANCH=$(git branch 2>/dev/null | grep ^\* | awk '{ print $2 }')
 [[ -n "$__BRANCH" && "$__BRANCH" == 'master' ]] && echo -e "$__BRANCH"
