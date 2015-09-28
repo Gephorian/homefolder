@@ -1,5 +1,4 @@
-#[[ $- != *i* ]] && return
-#[[ -z "$TMUX" ]] && exec tmux
+[[ $- == *i* ]] && [[ -z "$TMUX" ]] && exec tmux
 
 
 if [ -d ~/.bashrc.d ]; then
