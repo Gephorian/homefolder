@@ -1,6 +1,3 @@
-[[ $- == *i* ]] && [[ -z "$TMUX" ]] && exec tmux
-
-
 if [ -d ~/.bashrc.d ]; then
   for file in ~/.bashrc.d/* ; do
 	  . $file
