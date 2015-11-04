@@ -15,3 +15,5 @@ PS1="\[\033[32m\]\u@\h:\[\033[34m\]\w:\[\033[31m\]\[\033[31m\]\$(__git_ps1)\[\03
 
 export ANSIBLE_HOST_KEY_CHECKING=False
 export EDITOR=vim
+
+[[ $- == *i* ]] && [[ -z "$TMUX" ]] && exec tmux
