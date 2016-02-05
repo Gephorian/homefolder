@@ -9,7 +9,7 @@ alias ll='ls -lG --color=auto'
 # Show current git branch
 __git_ps1(){
   __GIT=$(git status 2>/dev/null)
-  __BRANCH=$(echo -e $__GIT | grep -e 'HEAD detached at' -e 'On branch' | perl -p -e 's/(On branch |HEAD detached at )(.*?)\s.*/$2/')
+  __BRANCH=$(echo -e $__GIT | grep -e 'HEAD detached at' -e 'On branch' | perl -p -e 's/^.*?(On branch |HEAD detached at )(.*?)\s.*/$2/')
   [[ -n "$__BRANCH" ]] || return 0
   [[ "$__BRANCH" == 'master' ]] && echo -en ":$__BRANCH" || echo -en ":$__BRANCH"
   if ! echo $__GIT | grep 'working directory clean' 2>/dev/null >/dev/null; then
