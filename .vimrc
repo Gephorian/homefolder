@@ -9,7 +9,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-autocmd vimenter * NERDTree
+"autocmd vimenter * NERDTree
 let NERDTreeQuitOnOpen=1
 
 function! s:CloseIfOnlyControlWinLeft()
