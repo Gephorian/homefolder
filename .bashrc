@@ -11,13 +11,13 @@ __git_ps1(){
   __GIT=$(git status 2>/dev/null)
   __BRANCH=$(echo -e $__GIT | grep -e 'HEAD detached at' -e 'On branch' | perl -p -e 's/^.*?(On branch |HEAD detached at )(.*?)\s.*/$2/')
   [[ -n "$__BRANCH" ]] || return 0
-  [[ "$__BRANCH" == 'master' ]] && echo -en "|$__BRANCH" || echo -en "|$__BRANCH"
+  [[ "$__BRANCH" == 'master' ]] && echo -en " ($__BRANCH)" || echo -en " ($__BRANCH)"
   if ! echo $__GIT | grep 'working directory clean' 2>/dev/null >/dev/null; then
     echo -en "*"
   fi
 }
 
-PS1="\[\e[0;49;32m\]\u@\h:\[\e[34m\]\w\\[\e[31m\]\$(__git_ps1)\[\e[0m\e[0;49;34m\]\$\[\e[00m\] "
+PS1="\[\e[0;49;35m\][\[\e[2;100;97m\]\u\[\e[0;49;35m\]@\[\e[2;100;97m\]\h\[\e[0;49;35m\]]\[\e[2;100;97m\]\w\\[\e[31m\]\$(__git_ps1)\[\e[0m\e[0;49;35m\]\[\e[0;49;35m\]$\[\e[00m\] "
 
 # Ansible stuff
 export ANSIBLE_HOST_KEY_CHECKING=False
