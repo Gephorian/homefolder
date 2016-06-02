@@ -50,3 +50,4 @@ install .viminfo
 install .vimrc
 install .gitconfig
 install .bash_profile
+install .i3
