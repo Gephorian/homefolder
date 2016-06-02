@@ -76,10 +76,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # move workspace to other monitors
-bindsym $mod+Control+Left move workspace to output left
-bindsym $mod+Control+Right move workspace to output right
-bindsym $mod+Control+h move workspace to output left
-bindsym $mod+Control+l move workspace to output right
+bindsym $sup+Left move workspace to output left
+bindsym $sup+Right move workspace to output right
+bindsym $sup+h move workspace to output left
+bindsym $sup+l move workspace to output right
 
 
 # split in horizontal orientation
@@ -170,5 +170,8 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+
+# lock shortcut
+bindsym $mod+$mod2+l exec "i3lock"
 
 exec --no-startup-ed xrandr --output eDP1 --auto --left-of HDMI1
