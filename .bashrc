@@ -17,7 +17,25 @@ __git_ps1(){
   fi
 }
 
-PS1="\[\e[1;49;95m\][\[\e[1;49;97m\]\u\[\e[1;49;95m\]@\[\e[1;49;97m\]\h\[\e[1;49;95m\]]\[\e[1;49;97m\]\w\\[\e[31m\]\$(__git_ps1)\[\e[0m\e[1;49;95m\]$\[\e[00m\] "
+# tmux themes must be set in .tmux.conf
+case "$__THEME" in
+  purple)
+    PS1="\[\e[1;49;95m\][\[\e[1;49;97m\]\u\[\e[1;49;95m\]@\[\e[1;49;97m\]\h\[\e[1;49;95m\]]\[\e[1;49;97m\]\w\\[\e[31m\]\$(__git_ps1)\[\e[0m\e[1;49;95m\]$\[\e[00m\] "
+    export __TMUXBG=colour53
+    export __TMUXFG=colour8
+  ;;
+  purple-extended)
+    PS1="\[\e[1;49;95m\][\[\e[1;49;97m\]\u\[\e[1;49;95m\]@\[\e[1;49;97m\]\h\[\e[1;49;95m\]]\[\e[1;49;97m\]\w\\[\e[31m\]\$(__git_ps1)
+\[\e[0m\e[1;49;95m\]>>>\[\e[00m\] "
+    export __TMUXBG=colour53
+    export __TMUXFG=colour8
+  ;;
+  *)
+    PS1="\[\e[0;49;32m\]\u@\h:\[\e[34m\]\w\\[\e[31m\]\$(__git_ps1)\[\e[0m\e[0;49;34m\]\$\[\e[00m\] "
+    export __TMUXBG=green
+    export __TMUXFG=black
+  ;;
+esac    
 
 # Ansible stuff
 export ANSIBLE_HOST_KEY_CHECKING=False
@@ -28,9 +46,6 @@ export HISTSIZE=5000
 export HISTFILESIZE=10000
 export HISTCONTRL=ignoreboth
 shopt -s histappend
-
-# Start tmux
-[[ $- == *i* ]] && [[ -z "$TMUX" ]] && exec tmux
 
 PATH="/home/adam/perl5/bin${PATH+:}${PATH}"; export PATH;
 PERL5LIB="/home/adam/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
@@ -52,4 +67,7 @@ for clbg in {40..47} {100..107} 49 ; do
 	done
 done
 } 
+
+# Start tmux
+[[ $- == *i* ]] && [[ -z "$TMUX" ]] && exec tmux
 
