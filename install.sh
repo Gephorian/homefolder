@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 while getopts ":d" opt; do
   case "$opt" in
     d) DEBUG=true;;
@@ -32,10 +31,11 @@ install(){
   FILE=${1-null}
   if [ -f ${FILE} ]; then
     info "Installing $FILE"
-    cp -r $FILE ~ || error "Couldn't copy the file: $FILE!"
+    ln -sf $(readlink -f $FILE) ~ || error "Couldn't copy the file: $FILE!"
   elif [ -d ${FILE} ]; then
     info "Installing $FILE"
-    cp -r $FILE ~ || error "Couldn't copy the directory: $FILE!"
+    [ -d ~/$FILE ] && rm -rf ~/$FILE
+    ln -sf $(readlink -f $FILE) ~ || error "Couldn't copy the directory: $FILE!"
   else
     error "File ${FILE} doesn't exist!"
   fi
@@ -46,7 +46,6 @@ install .bashrc.d
 install .ircservers
 install .tmux.conf
 install .vim
-install .viminfo
 install .vimrc
 install .gitconfig
 install .bash_profile
