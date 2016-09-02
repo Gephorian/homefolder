@@ -39,6 +39,7 @@ esac
 
 # Ansible stuff
 export ANSIBLE_HOST_KEY_CHECKING=False
+export ANSIBLE_NOCOWS=1
 export EDITOR=vim
 
 # History control
