@@ -21,19 +21,75 @@ __git_ps1(){
 case "$__THEME" in
   purple)
     PS1="\[\e[1;49;95m\][\[\e[1;49;97m\]\u\[\e[1;49;95m\]@\[\e[1;49;97m\]\h\[\e[1;49;95m\]]\[\e[1;49;97m\]\w\\[\e[31m\]\$(__git_ps1)\[\e[0m\e[1;49;95m\]$\[\e[00m\] "
+# Status Bar
     export __TMUXBG=colour53
     export __TMUXFG=colour8
+# Select Window
+    export __TMUX_MODE_BG=colour53
+    export __TMUX_MODE_FG=colour8
+# Pane Select
+    export __TMUX_PANE=colour8
+    export __TMUX_ACTIVE_PANE=colour53
+    export __TMUX_PANE_BORDER=black
+    export __TMUX_ACTIVE_PANE_BORDER=colour53
   ;;
   purple-extended)
     PS1="\[\e[1;49;95m\][\[\e[1;49;97m\]\u\[\e[1;49;95m\]@\[\e[1;49;97m\]\h\[\e[1;49;95m\]]\[\e[1;49;97m\]\w\\[\e[31m\]\$(__git_ps1)
 \[\e[0m\e[1;49;95m\]>>>\[\e[00m\] "
     export __TMUXBG=colour53
     export __TMUXFG=colour8
+    export __TMUX_MODE_BG=colour53
+    export __TMUX_MODE_FG=colour8
+    export __TMUX_PANE=colour8
+    export __TMUX_ACTIVE_PANE=colour53
+    export __TMUX_PANE_BORDER=black
+    export __TMUX_ACTIVE_PANE_BORDER=colour53
+  ;;
+  white)
+    PS1="\[\e[1;49;97m\][\u@\h]\w\$(__git_ps1)$\[\e[00m\] "
+    export __TMUXBG=white
+    export __TMUXFG=black
+    export __TMUX_MODE_BG=white
+    export __TMUX_MODE_FG=black
+    export __TMUX_PANE=black
+    export __TMUX_ACTIVE_PANE=white
+    export __TMUX_PANE_BORDER=black
+    export __TMUX_ACTIVE_PANE_BORDER=white
+  ;;
+  white-extended)
+    PS1="\[\e[1;49;97m\][\u@\h]\w\$(__git_ps1)
+>>>\[\e[00m\] "
+    export __TMUXBG=white
+    export __TMUXFG=black
+    export __TMUX_MODE_BG=white
+    export __TMUX_MODE_FG=black
+    export __TMUX_PANE=black
+    export __TMUX_ACTIVE_PANE=white
+    export __TMUX_PANE_BORDER=black
+    export __TMUX_ACTIVE_PANE_BORDER=white
+  ;;
+  green-extended)
+    PS1="\[\e[1;49;32m\][\[\e[34m\]\u\[\e[31m\]@\[\e[34m\]\h\[\e[1;49;32m\]]\[\e[0;49;32m\]\w\\[\e[31m\]\$(__git_ps1)
+\[\e[0m\e[1;49;32m\]>>>\[\e[00m\] "
+    export __TMUXBG=green
+    export __TMUXFG=black
+    export __TMUX_MODE_BG=yellow
+    export __TMUX_MODE_FG=black
+    export __TMUX_PANE=blue
+    export __TMUX_ACTIVE_PANE=red
+    export __TMUX_PANE_BORDER=white
+    export __TMUX_ACTIVE_PANE_BORDER=green
   ;;
   *)
     PS1="\[\e[0;49;32m\]\u@\h:\[\e[34m\]\w\\[\e[31m\]\$(__git_ps1)\[\e[0m\e[0;49;34m\]\$\[\e[00m\] "
     export __TMUXBG=green
     export __TMUXFG=black
+    export __TMUX_MODE_BG=yellow
+    export __TMUX_MODE_FG=black
+    export __TMUX_PANE=blue
+    export __TMUX_ACTIVE_PANE=red
+    export __TMUX_PANE_BORDER=white
+    export __TMUX_ACTIVE_PANE_BORDER=green
   ;;
 esac    
 
