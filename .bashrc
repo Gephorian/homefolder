@@ -4,7 +4,7 @@ if [ -d ~/.bashrc.d ]; then
   done
 fi
 
-alias ll='ls -lG --color=auto'
+alias ll='ls -lG'
 
 # Show current git branch
 __git_ps1(){
@@ -12,7 +12,7 @@ __git_ps1(){
   __BRANCH=$(echo -e $__GIT | grep -e 'HEAD detached at' -e 'On branch' | perl -p -e 's/^.*?(On branch |HEAD detached at )(.*?)\s.*/$2/')
   [[ -n "$__BRANCH" ]] || return 0
   [[ "$__BRANCH" == 'master' ]] && echo -en " ($__BRANCH)" || echo -en " ($__BRANCH)"
-  if ! echo $__GIT | grep 'working directory clean' 2>/dev/null >/dev/null; then
+  if ! echo $__GIT | grep -E 'working (directory|tree) clean' 2>/dev/null >/dev/null; then
     echo -en "*"
   fi
 }
