@@ -4,19 +4,6 @@ if [ -d ~/.bashrc.d ]; then
   done
 fi
 
-alias ll='ls -lG'
-
-# Show current git branch
-__git_ps1(){
-  __GIT=$(git status 2>/dev/null)
-  __BRANCH=$(echo -e $__GIT | grep -e 'HEAD detached at' -e 'On branch' | perl -p -e 's/^.*?(On branch |HEAD detached at )(.*?)\s.*/$2/')
-  [[ -n "$__BRANCH" ]] || return 0
-  [[ "$__BRANCH" == 'master' ]] && echo -en " ($__BRANCH)" || echo -en " ($__BRANCH)"
-  if ! echo $__GIT | grep -E 'working (directory|tree) clean' 2>/dev/null >/dev/null; then
-    echo -en "*"
-  fi
-}
-
 # tmux themes must be set in .tmux.conf
 case "$__THEME" in
   purple)
@@ -93,6 +80,22 @@ case "$__THEME" in
   ;;
 esac    
 
+# Start tmux
+[[ $- == *i* ]] && [[ -z "$TMUX" ]] && exec tmux
+
+alias ll='ls -lG'
+
+# Show current git branch
+__git_ps1(){
+  __GIT=$(git status 2>/dev/null)
+  [[ "$?" == '128' ]] && return 0
+  __BRANCH=$(echo "$__GIT" | awk 'NR==1{ print $NF }')
+  echo -en " ($__BRANCH)"
+  if ! [[ "$__GIT" =~ (directory clean|tree clean) ]]; then
+    echo -en "*"
+  fi
+}
+
 # Ansible stuff
 export ANSIBLE_HOST_KEY_CHECKING=False
 export ANSIBLE_NOCOWS=1
@@ -124,7 +127,4 @@ for clbg in {40..47} {100..107} 49 ; do
 	done
 done
 } 
-
-# Start tmux
-[[ $- == *i* ]] && [[ -z "$TMUX" ]] && exec tmux
 
