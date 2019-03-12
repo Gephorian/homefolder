@@ -4,6 +4,8 @@ if [ -d ~/.bashrc.d ]; then
   done
 fi
 
+[[ "$(hostname)" =~ ^bastion ]] && BASTION=true || BASTION=false
+
 # tmux themes must be set in .tmux.conf
 case "$__THEME" in
   purple)
@@ -81,7 +83,7 @@ case "$__THEME" in
 esac    
 
 # Start tmux
-[[ $- == *i* ]] && [[ -z "$TMUX" ]] && exec tmux
+[[ $- == *i* ]] && [[ -z "$TMUX" ]] && [[ "$BASTION" = "false" ]] && sleep .5 && exec tmux
 
 alias ll='ls -lG'
 
@@ -107,6 +109,9 @@ export HISTFILESIZE=10000
 export HISTCONTRL=ignoreboth
 shopt -s histappend
 
+# Utility bin dir
+[ -d ~/repos/utility/bin ] && PATH=$PATH:~/repos/utility/bin
+
 PATH="/home/adam/perl5/bin${PATH+:}${PATH}"; export PATH;
 PERL5LIB="/home/adam/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/adam/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"; export PERL_LOCAL_LIB_ROOT;
@@ -128,3 +133,4 @@ for clbg in {40..47} {100..107} 49 ; do
 done
 } 
 
+[ -f /usr/bin/kubectl ] && source <(/usr/bin/kubectl completion bash)
