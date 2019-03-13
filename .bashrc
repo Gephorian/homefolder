@@ -83,7 +83,7 @@ case "$__THEME" in
 esac    
 
 # Start tmux
-[[ $- == *i* ]] && [[ -z "$TMUX" ]] && [[ "$BASTION" = "false" ]] && sleep .5 && exec tmux
+[[ $- == *i* ]] && [[ -z "$TMUX" ]] && [[ "$BASTION" = "false" ]] && exec tmux
 
 alias ll='ls -lG'
 
