@@ -71,3 +71,9 @@ fi
 if [ ! -d ~/.vim/bundle/nerdtree ]; then
   git clone --recursive https://github.com/scrooloose/nerdtree ~/.vim/bundle/nerdtree
 fi
+
+# bufexplorer
+# Buffer explorer for vim
+if [ ! -d ~/.vim/bundle/bufexplorer.vim ]; then
+  git clone --recursive https://github.com/jlanzarotta/bufexplorer.git ~/.vim/bundle/bufexplorer.vim
+fi
