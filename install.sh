@@ -50,3 +50,24 @@ install .vimrc
 install .gitconfig
 install .bash_profile
 install .i3
+
+# git-fugitive
+# Git bindings for vim
+FUGITIVEDIR=~/.vim/pack/tpope/start
+if [ ! -d ${FUGITIVEDIR} ]; then
+  mkdir -p ${FUGITIVEDIR}
+  git clone https://tpope.io/vim/fugitive.git ${FUGITIVEDIR}/fugitive
+  vim -u NONE -c "helptags fugitive/doc" -c q
+fi
+
+# jedi-vim
+# Python autocomplete library for vim
+if [ ! -d ~/.vim/bundle/jedi-vim ]; then
+  git clone --recursive https://github.com/davidhalter/jedi-vim.git ~/.vim/bundle/jedi-vim
+fi
+
+# NERDtree
+# Directory tree explorer for vim
+if [ ! -d ~/.vim/bundle/nerdtree ]; then
+  git clone --recursive https://github.com/scrooloose/nerdtree ~/.vim/bundle/nerdtree
+fi
