@@ -1,1 +1,3 @@
 .bashrc.d/*local
+.vim/bundle/*
+.vim/pack
