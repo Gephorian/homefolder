@@ -1,0 +1,16 @@
+if which kubectl 2>&1 > /dev/null; then
+  # Bash completion
+  source <(kubectl completion bash)
+
+  # Kube namespace tool
+  kns(){
+    [ -z "$1" ] && kubectl get ns && return
+    kubectl config set-context --current --namespace ${1:-default}
+  }
+
+  # Kube context tool
+  kctx(){
+    [ -z "$1" ] && kubectl config get-contexts && return
+    kubectl config use-context $1
+  }
+fi
