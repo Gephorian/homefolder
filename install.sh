@@ -31,16 +31,26 @@ install(){
   FILE=${1-null}
   if [ -f ${FILE} ]; then
     info "Installing $FILE"
-    ln -sf $(readlink -f $FILE) ~ || error "Couldn't copy the file: $FILE!"
+    ln -sf $(readlink -f $FILE) ~/$2 || error "Couldn't copy the file: $FILE!"
   elif [ -d ${FILE} ]; then
     info "Installing $FILE"
     [ -d ~/$FILE ] && rm -rf ~/$FILE
-    ln -sf $(readlink -f $FILE) ~ || error "Couldn't copy the directory: $FILE!"
+    ln -sf $(readlink -f $FILE) ~/$2 || error "Couldn't copy the directory: $FILE!"
   else
     error "File ${FILE} doesn't exist!"
   fi
 }
 
+install_bin(){
+  install bin/$1 bin
+}
+
+# Create ~/bin if it doesn't exist
+if [ ! -d ~/bin ]; then
+  mkdir ~/bin
+fi
+
+install_bin nsgit
 install .bashrc
 install .bashrc.d
 install .ircservers

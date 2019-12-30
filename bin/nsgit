@@ -1,0 +1,21 @@
+#!/bin/bash
+
+usage(){
+  echo "Usage: $0 clone \$repo_name"
+  exit
+}
+
+if [ "$1" == "clone" ]; then
+  [ -n "$2" ] || usage
+  declare -a repos=(
+    "git.nullspec.net:nullspec/$2"
+    "git.nullspec.net:drunkserver/$2"
+    "git.nullspec.net:$USER/$2"
+  )
+  for repo in "${repos[@]}"; do
+    echo -e "\n=> Trying ${repo}\n"
+    git clone git@${repo} && exit
+  done
+else
+  usage
+fi
