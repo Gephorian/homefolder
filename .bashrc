@@ -12,12 +12,12 @@ case "$__THEME" in
     PS1="\[\e[1;49;95m\][\[\e[1;49;97m\]\u\[\e[1;49;95m\]@\[\e[1;49;97m\]\h\[\e[1;49;95m\]]\[\e[1;49;97m\]\w\\[\e[31m\]\$(__git_ps1)\[\e[0m\e[1;49;95m\]$\[\e[00m\] "
 # Status Bar
     export __TMUXBG=colour53
-    export __TMUXFG=colour8
+    export __TMUXFG=white
 # Select Window
     export __TMUX_MODE_BG=colour53
-    export __TMUX_MODE_FG=colour8
+    export __TMUX_MODE_FG=white
 # Pane Select
-    export __TMUX_PANE=colour8
+    export __TMUX_PANE=white
     export __TMUX_ACTIVE_PANE=colour53
     export __TMUX_PANE_BORDER=black
     export __TMUX_ACTIVE_PANE_BORDER=colour53
@@ -26,10 +26,10 @@ case "$__THEME" in
     PS1="\[\e[1;49;95m\][\[\e[1;49;97m\]\u\[\e[1;49;95m\]@\[\e[1;49;97m\]\h\[\e[1;49;95m\]]\[\e[1;49;97m\]\w\\[\e[31m\]\$(__git_ps1)
 \[\e[0m\e[1;49;95m\]>>>\[\e[00m\] "
     export __TMUXBG=colour53
-    export __TMUXFG=colour8
+    export __TMUXFG=white
     export __TMUX_MODE_BG=colour53
-    export __TMUX_MODE_FG=colour8
-    export __TMUX_PANE=colour8
+    export __TMUX_MODE_FG=white
+    export __TMUX_PANE=white
     export __TMUX_ACTIVE_PANE=colour53
     export __TMUX_PANE_BORDER=black
     export __TMUX_ACTIVE_PANE_BORDER=colour53
