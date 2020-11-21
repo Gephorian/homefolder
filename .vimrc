@@ -29,3 +29,6 @@ augroup CloseIfOnlyControlWinLeft
 augroup END
 
 color desert
+
+set rtp+=~/.fzf
+map \ff :FZF<Enter>

@@ -87,3 +87,16 @@ fi
 if [ ! -d ~/.vim/bundle/bufexplorer.vim ]; then
   git clone --recursive https://github.com/jlanzarotta/bufexplorer.git ~/.vim/bundle/bufexplorer.vim
 fi
+
+# fzf
+# Fuzzy Finder
+if [ ! -d ~/.fzf ]; then
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install --no-key-bindings --no-completion --no-update-rc
+  (
+    cd ~/.fzf/bin
+    for i in *; do
+      ln -s ~/.fzf/bin/$i ~/bin/
+    done
+  )
+fi
