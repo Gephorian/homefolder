@@ -1,5 +1,5 @@
 execute pathogen#infect()
-"filetype plugin indent on
+filetype plugin indent on
 syntax on
 
 nnoremap <C-J> <C-W><C-J>
@@ -8,7 +8,6 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " NERDTree
-" autocmd vimenter * NERDTree | wincmd p
 let NERDTreeQuitOnOpen=1
 
 function! s:CloseIfOnlyControlWinLeft()
