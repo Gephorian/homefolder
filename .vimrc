@@ -1,17 +1,14 @@
-
 execute pathogen#infect()
 "filetype plugin indent on
 syntax on
-
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-set expandtab
-set tabstop=4
-"autocmd vimenter * NERDTree
+" NERDTree
+" autocmd vimenter * NERDTree | wincmd p
 let NERDTreeQuitOnOpen=1
 
 function! s:CloseIfOnlyControlWinLeft()
@@ -28,7 +25,17 @@ augroup CloseIfOnlyControlWinLeft
   au BufEnter * call s:CloseIfOnlyControlWinLeft()
 augroup END
 
-color desert
+" NERDCommenter
+let g:NERDCreateDefaultMappings = 0
+let g:NERDSpaceDelims = 1
+let g:NERDToggleCheckAllLines = 1
+map \cc <plug>NERDCommenterToggle
 
+" FuzzyFind
 set rtp+=~/.fzf
 map \ff :FZF<Enter>
+
+" Prefs
+color desert
+set expandtab
+set tabstop=4

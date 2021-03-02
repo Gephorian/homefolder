@@ -82,6 +82,13 @@ if [ ! -d ~/.vim/bundle/nerdtree ]; then
   git clone --recursive https://github.com/scrooloose/nerdtree ~/.vim/bundle/nerdtree
 fi
 
+# NERDcommenter
+# Easy context-sensitive comment shortcut
+if [ ! -d ~/.vim/bundle/nerdcommenter ]; then
+  git clone --recursive https://github.com/preservim/nerdcommenter ~/.vim/bundle/nerdcommenter
+fi
+
+
 # bufexplorer
 # Buffer explorer for vim
 if [ ! -d ~/.vim/bundle/bufexplorer.vim ]; then
