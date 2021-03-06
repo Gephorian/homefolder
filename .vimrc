@@ -1,5 +1,5 @@
 execute pathogen#infect()
-filetype plugin indent on
+" filetype plugin indent on
 syntax on
 
 nnoremap <C-J> <C-W><C-J>
