@@ -81,6 +81,10 @@ elif [ "$MACOS" == 'true' ]; then # Mac/work setup
   if [ ! -d $ZSHRCDDIR ]; then
     git clone https://github.com/zshzoo/zshrc.d $ZSHRCDDIR
   fi
+  ZSHZDIR=~/.oh-my-zsh/custom/plugins/zsh-z
+  if [ ! -d $ZSHZDIR ]; then
+    git clone https://github.com/agkozak/zsh-z $ZSHZDIR
+  fi
 fi
 
 # git-fugitive
