@@ -60,6 +60,7 @@ install .vimrc
 install .gitconfig
 install .bash_profile
 install .i3
+install .zshrc
 
 # git-fugitive
 # Git bindings for vim
