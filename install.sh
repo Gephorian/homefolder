@@ -76,6 +76,7 @@ elif [ "$MACOS" == 'true' ]; then # Mac/work setup
   # Install "oh-my-zsh"
   [ ! -e ~/.oh-my-zsh ] &&  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   install .zshrc
+  [ -d ~/.zshrc.d ] || mkdir ~/.zshrc.d
   # Install plugins
   ZSHRCDDIR=~/.oh-my-zsh/custom/plugins/zshrc.d
   if [ ! -d $ZSHRCDDIR ]; then
