@@ -1,5 +1,8 @@
 #!/bin/bash
 
+MACOS=false
+[ -e "/AppleInternal" ] && MACOS=true
+
 while getopts ":d" opt; do
   case "$opt" in
     d) DEBUG=true;;
@@ -29,13 +32,14 @@ die(){
 
 install(){
   FILE=${1-null}
+  [ "$MACOS" == 'true' ] && READLINK=greadlink || READLINK=readlink
   if [ -f ${FILE} ]; then
     info "Installing $FILE"
-    ln -sf $(readlink -f $FILE) ~/$2 || error "Couldn't copy the file: $FILE!"
+    ln -sf $($READLINK -f $FILE) ~/$2 || error "Couldn't copy the file: $FILE!"
   elif [ -d ${FILE} ]; then
-    info "Installing $FILE"
+    info "Removing original and installing $FILE"
     [ -d ~/$FILE ] && rm -rf ~/$FILE
-    ln -sf $(readlink -f $FILE) ~/$2 || error "Couldn't copy the directory: $FILE!"
+    ln -sf $($READLINK -f $FILE) ~/$2 || error "Couldn't copy the directory: $FILE!"
   else
     error "File ${FILE} doesn't exist!"
   fi
@@ -45,22 +49,39 @@ install_bin(){
   install bin/$1 bin
 }
 
+# Checks
+if [ "$MACOS" == 'true' ]; then
+  which greadlink >/dev/null || die "MACOS requires greadlink. Do 'brew install coreutils'"
+fi
+
 # Create ~/bin if it doesn't exist
 if [ ! -d ~/bin ]; then
   mkdir ~/bin
 fi
 
-install_bin nsgit
-install .bashrc
-install .bashrc.d
-install .ircservers
-install .tmux.conf
-install .vim
-install .vimrc
-install .gitconfig
-install .bash_profile
-install .i3
-install .zshrc
+if [ ! "$MACOS" == 'true' ]; then # Bastion/linux/home setup
+  install_bin nsgit
+  install .gitconfig
+  install .bashrc
+  install .bashrc.d
+  install .bash_profile
+  install .tmux.conf
+  install .vim
+  install .vimrc
+elif [ "$MACOS" == 'true' ]; then # Mac/work setup
+  install .tmux.conf
+  install .vim
+  install .vimrc
+
+  # Install "oh-my-zsh"
+  [ ! -e ~/.oh-my-zsh ] &&  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  install .zshrc
+  # Install plugins
+  ZSHRCDDIR=~/.oh-my-zsh/custom/plugins/zshrc.d
+  if [ ! -d $ZSHRCDDIR ]; then
+    git clone https://github.com/zshzoo/zshrc.d $ZSHRCDDIR
+  fi
+fi
 
 # git-fugitive
 # Git bindings for vim
