@@ -7,7 +7,7 @@ export __TMUX_PANE=blue
 export __TMUX_ACTIVE_PANE=red
 export __TMUX_PANE_BORDER=white
 export __TMUX_ACTIVE_PANE_BORDER=green
-[[ $- == *i* ]] && [[ -z "$TMUX" ]] && exec tmux
+[[ $- == *i* ]] && [[ -z "$TMUX" ]] && exec tmuxp load auth terminals
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
