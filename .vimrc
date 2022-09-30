@@ -38,3 +38,8 @@ map \ff :FZF<Enter>
 color desert
 set expandtab
 set tabstop=4
+
+" Keep working directory clean
+set directory=~/.swp/,/tmp/
+set backupdir=~/.backup/,/tmp/
+set undodir=~/.undo/,/tmp/

@@ -134,3 +134,10 @@ if [ ! -d ~/.fzf ]; then
     done
   )
 fi
+
+for i in ~/.swp ~/.undodir ~/.backup; do
+  if [ ! -d $i ]; then
+    echo $i does not exist, creating...
+    mkdir $i
+  fi
+done
