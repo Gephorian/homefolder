@@ -1,7 +1,7 @@
 #!/bin/bash
 
 MACOS=false
-[ -e "/AppleInternal" ] && MACOS=true
+[[ -e "/Users" && ! -e "/proc/" ]] && MACOS=true
 
 while getopts ":d" opt; do
   case "$opt" in
@@ -78,10 +78,6 @@ elif [ "$MACOS" == 'true' ]; then # Mac/work setup
   install .zshrc
   [ -d ~/.zshrc.d ] || mkdir ~/.zshrc.d
   # Install plugins
-  ZSHRCDDIR=~/.oh-my-zsh/custom/plugins/zshrc.d
-  if [ ! -d $ZSHRCDDIR ]; then
-    git clone https://github.com/zshzoo/zshrc.d $ZSHRCDDIR
-  fi
   ZSHZDIR=~/.oh-my-zsh/custom/plugins/zsh-z
   if [ ! -d $ZSHZDIR ]; then
     git clone https://github.com/agkozak/zsh-z $ZSHZDIR

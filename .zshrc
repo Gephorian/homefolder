@@ -7,7 +7,7 @@ export __TMUX_PANE=blue
 export __TMUX_ACTIVE_PANE=red
 export __TMUX_PANE_BORDER=white
 export __TMUX_ACTIVE_PANE_BORDER=green
-[[ $- == *i* ]] && [[ -z "$TMUX" ]] && exec tmuxp load auth terminals
+[[ $- == *i* ]] && [[ -z "$TMUX" ]] && which tmux 2>&1 >/dev/null && exec tmux
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -83,7 +83,7 @@ ZSH_CUSTOM=$ZSH/custom
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zshrc.d zsh-z)
+plugins=(git zsh-z)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -112,3 +112,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+for i in ~/.zshrc.d/*; do
+  source $i
+done
