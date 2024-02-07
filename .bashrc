@@ -136,3 +136,5 @@ done
 [ -f /usr/bin/kubectl ] && source <(/usr/bin/kubectl completion bash)
 
 [[ -s "/home/adam/.gvm/scripts/gvm" ]] && source "/home/adam/.gvm/scripts/gvm"
+# Rust
+[[ -s "/home/adam/.cargo/env" ]] && source "/home/adam/.cargo/env"
