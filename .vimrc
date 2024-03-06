@@ -24,6 +24,8 @@ augroup CloseIfOnlyControlWinLeft
   au BufEnter * call s:CloseIfOnlyControlWinLeft()
 augroup END
 
+map \bb :NERDTree<enter>
+
 " NERDCommenter
 let g:NERDCreateDefaultMappings = 0
 let g:NERDSpaceDelims = 1
