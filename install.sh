@@ -49,6 +49,10 @@ install_bin(){
   install bin/$1 bin
 }
 
+install_vim_plugin(){
+  install vim_plugins/$1 .vim/plugin
+}
+
 # Checks
 if [ "$MACOS" == 'true' ]; then
   which greadlink >/dev/null || die "MACOS requires greadlink. Do 'brew install coreutils'"
@@ -90,6 +94,18 @@ POLYGLOTDIR=~/.vim/bundle/vim-polyglot
 if [ ! -d ${POLYGLOTDIR} ]; then
   mkdir -p ${POLYGLOTDIR}
   git clone https://github.com/sheerun/vim-polyglot ${POLYGLOTDIR}
+fi
+
+# vim-docker-tools
+# Docker toolkit
+# Only install if Docker exists
+if which docker 2>&1 >/dev/null; then
+  DOCKERDIR=~/.vim/bundle/vim-docker-tools
+  if [ ! -d ${DOCKERDIR} ]; then
+    mkdir -p ${DOCKERDIR}
+    git clone https://github.com/kkvh/vim-docker-tools.git ${DOCKERDIR}
+  fi
+  install_vim_plugin vim-docker-tools.vim
 fi
 
 # git-fugitive
