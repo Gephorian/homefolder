@@ -84,6 +84,14 @@ elif [ "$MACOS" == 'true' ]; then # Mac/work setup
   fi
 fi
 
+# vim-polyglot
+# Syntax highlighting and checking for a LOT of languages
+POLYGLOTDIR=~/.vim/bundle/vim-polyglot
+if [ ! -d ${POLYGLOTDIR} ]; then
+  mkdir -p ${POLYGLOTDIR}
+  git clone https://github.com/sheerun/vim-polyglot ${POLYGLOTDIR}
+fi
+
 # git-fugitive
 # Git bindings for vim
 FUGITIVEDIR=~/.vim/pack/tpope/start
@@ -110,7 +118,6 @@ fi
 if [ ! -d ~/.vim/bundle/nerdcommenter ]; then
   git clone --recursive https://github.com/preservim/nerdcommenter ~/.vim/bundle/nerdcommenter
 fi
-
 
 # bufexplorer
 # Buffer explorer for vim
