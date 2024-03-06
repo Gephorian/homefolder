@@ -40,6 +40,7 @@ map \ff :FZF<Enter>
 color desert
 set expandtab
 set tabstop=4
+set cursorline
 
 " Keep working directory clean
 set directory=~/.swp/,/tmp/
