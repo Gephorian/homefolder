@@ -15,5 +15,6 @@ augroup CloseIfOnlyControlWinLeft
   au BufEnter * call s:CloseIfOnlyControlWinLeft()
 augroup END
 
-map \bb :NERDTree<enter>
+map <C-o> :NERDTreeFind<CR>
+map \bb :NERDTreeToggle<CR>
 
