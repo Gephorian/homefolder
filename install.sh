@@ -96,6 +96,14 @@ if [ ! -d ${POLYGLOTDIR} ]; then
   git clone https://github.com/sheerun/vim-polyglot ${POLYGLOTDIR}
 fi
 
+# ale
+# Linting and syntax checking for a LOT of languages
+ALEDIR=~/.vim/bundle/ale
+if [ ! -d ${ALEDIR} ]; then
+  mkdir -p ${ALEDIR}
+  git clone https://github.com/dense-analysis/ale ${ALEDIR}
+fi
+
 # vim-docker-tools
 # Docker toolkit
 # Only install if Docker exists
