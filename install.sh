@@ -95,7 +95,7 @@ fi
 POLYGLOTDIR=~/.vim/bundle/vim-polyglot
 if [ ! -d ${POLYGLOTDIR} ]; then
   mkdir -p ${POLYGLOTDIR}
-  git clone https://github.com/sheerun/vim-polyglot ${POLYGLOTDIR}
+  git clone --depth=1 https://github.com/sheerun/vim-polyglot ${POLYGLOTDIR}
 fi
 
 # ale
@@ -103,7 +103,7 @@ fi
 ALEDIR=~/.vim/bundle/ale
 if [ ! -d ${ALEDIR} ]; then
   mkdir -p ${ALEDIR}
-  git clone https://github.com/dense-analysis/ale ${ALEDIR}
+  git clone --depth=1 https://github.com/dense-analysis/ale ${ALEDIR}
 fi
 
 # vim-docker-tools
@@ -113,7 +113,7 @@ if which docker 2>&1 >/dev/null; then
   DOCKERDIR=~/.vim/bundle/vim-docker-tools
   if [ ! -d ${DOCKERDIR} ]; then
     mkdir -p ${DOCKERDIR}
-    git clone https://github.com/kkvh/vim-docker-tools.git ${DOCKERDIR}
+    git clone --depth=1 https://github.com/kkvh/vim-docker-tools.git ${DOCKERDIR}
   fi
   install_vim_plugin vim-docker-tools.vim
 fi
@@ -123,32 +123,38 @@ fi
 FUGITIVEDIR=~/.vim/pack/tpope/start
 if [ ! -d ${FUGITIVEDIR} ]; then
   mkdir -p ${FUGITIVEDIR}
-  git clone https://tpope.io/vim/fugitive.git ${FUGITIVEDIR}/fugitive
+  git clone --depth=1 https://tpope.io/vim/fugitive.git ${FUGITIVEDIR}/fugitive
   vim -u NONE -c "helptags fugitive/doc" -c q
 fi
 
 # jedi-vim
 # Python autocomplete library for vim
 if [ ! -d ~/.vim/bundle/jedi-vim ]; then
-  git clone --recursive https://github.com/davidhalter/jedi-vim.git ~/.vim/bundle/jedi-vim
+  git clone --depth=1 --recursive https://github.com/davidhalter/jedi-vim.git ~/.vim/bundle/jedi-vim
+fi
+
+# jedi-vim
+# Python autocomplete library for vim
+if [ ! -d ~/.vim/bundle/jedi-vim ]; then
+  git clone --depth=1 --recursive https://github.com/davidhalter/jedi-vim.git ~/.vim/bundle/jedi-vim
 fi
 
 # NERDtree
 # Directory tree explorer for vim
 if [ ! -d ~/.vim/bundle/nerdtree ]; then
-  git clone --recursive https://github.com/scrooloose/nerdtree ~/.vim/bundle/nerdtree
+  git clone --depth=1 --recursive https://github.com/scrooloose/nerdtree ~/.vim/bundle/nerdtree
 fi
 
 # NERDcommenter
 # Easy context-sensitive comment shortcut
 if [ ! -d ~/.vim/bundle/nerdcommenter ]; then
-  git clone --recursive https://github.com/preservim/nerdcommenter ~/.vim/bundle/nerdcommenter
+  git clone --depth=1 --recursive https://github.com/preservim/nerdcommenter ~/.vim/bundle/nerdcommenter
 fi
 
 # bufexplorer
 # Buffer explorer for vim
 if [ ! -d ~/.vim/bundle/bufexplorer.vim ]; then
-  git clone --recursive https://github.com/jlanzarotta/bufexplorer.git ~/.vim/bundle/bufexplorer.vim
+  git clone --depth=1 --recursive https://github.com/jlanzarotta/bufexplorer.git ~/.vim/bundle/bufexplorer.vim
 fi
 
 # fzf
