@@ -133,12 +133,6 @@ if [ ! -d ~/.vim/bundle/jedi-vim ]; then
   git clone --depth=1 --recursive https://github.com/davidhalter/jedi-vim.git ~/.vim/bundle/jedi-vim
 fi
 
-# jedi-vim
-# Python autocomplete library for vim
-if [ ! -d ~/.vim/bundle/jedi-vim ]; then
-  git clone --depth=1 --recursive https://github.com/davidhalter/jedi-vim.git ~/.vim/bundle/jedi-vim
-fi
-
 # NERDtree
 # Directory tree explorer for vim
 if [ ! -d ~/.vim/bundle/nerdtree ]; then
