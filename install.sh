@@ -72,10 +72,12 @@ if [ ! "$MACOS" == 'true' ]; then # Bastion/linux/home setup
   install .tmux.conf
   install .vim
   install .vimrc
+  install .yamlfmt
 elif [ "$MACOS" == 'true' ]; then # Mac/work setup
   install .tmux.conf
   install .vim
   install .vimrc
+  install .yamlfmt
 
   # Install "oh-my-zsh"
   [ ! -e ~/.oh-my-zsh ] &&  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
