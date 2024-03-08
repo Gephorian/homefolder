@@ -18,6 +18,9 @@ color desert
 set expandtab
 set tabstop=4
 set cursorline
+set nu
+hi Cursorline term=bold cterm=bold
+hi CursorLineNr term=bold cterm=underline ctermfg=11 gui=bold guifg=Yellow
 
 " Keep working directory clean
 set directory=~/.swp/,/tmp/
