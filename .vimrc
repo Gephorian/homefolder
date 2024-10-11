@@ -19,8 +19,10 @@ set expandtab
 set tabstop=4
 set cursorline
 set nu
+set hlsearch
 hi Cursorline term=bold cterm=bold
 hi CursorLineNr term=bold cterm=underline ctermfg=11 gui=bold guifg=Yellow
+hi ALEVirtualTextEditor guifg=red
 
 " Keep working directory clean
 set directory=~/.swp/,/tmp/

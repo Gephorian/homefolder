@@ -116,3 +116,5 @@ source $ZSH/oh-my-zsh.sh
 for i in ~/.zshrc.d/*; do
   source $i
 done
+
+[[ -s "/Users/adamcoleman/.gvm/scripts/gvm" ]] && source "/Users/adamcoleman/.gvm/scripts/gvm"
