@@ -151,6 +151,18 @@ if [ ! -d ~/.vim/bundle/bufexplorer.vim ]; then
   git clone --depth=1 --recursive https://github.com/jlanzarotta/bufexplorer.git ~/.vim/bundle/bufexplorer.vim
 fi
 
+# vim-yaml-fold
+# Line folder for YAML
+if [ ! -d ~/.vim/bundle/vim-yaml-folds.vim ]; then
+  git clone --depth=1 --recursive https://github.com/pedrohdz/vim-yaml-folds ~/.vim/bundle/vim-yaml-folds.vim
+fi
+
+# indentline
+# Shows indentations using vertical lines
+if [ ! -d ~/.vim/bundle/indentline.vim ]; then
+  git clone --depth=1 --recursive https://github.com/Yggdroot/indentLine ~/.vim/bundle/indentline.vim
+fi
+
 # fzf
 # Fuzzy Finder
 if [ ! -d ~/.fzf ]; then

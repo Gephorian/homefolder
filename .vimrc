@@ -28,3 +28,13 @@ hi ALEVirtualTextEditor guifg=red
 set directory=~/.swp/,/tmp/
 set backupdir=~/.backup/,/tmp/
 set undodir=~/.undo/,/tmp/
+
+" yamlfold
+set foldlevelstart=10
+
+" indentline
+let g:indentLine_char = '⦙'
+
+" Newline at the end of a file
+" It's POSIX compliant I guess.
+" set eol
