@@ -182,3 +182,26 @@ for i in ~/.swp ~/.undodir ~/.backup; do
     mkdir $i
   fi
 done
+
+GITCONFIG_LOCAL=${GITCONFIG_LOCAL:-~/.gitconfig_local}
+if [ ! -e "${GITCONFIG_LOCAL}" ]; then
+  echo "List of current gpg keys:"
+  gpg2 --list-keys --keyid-format=long || gpg --list-keys --keyid-format=long
+  read -p "Git email: " email
+  read -p "Git name:  " name
+  read -p "GPG key:   " gpgkey
+  cat > ${GITCONFIG_LOCAL} <<EOF
+[user]
+  email = ${email}
+  name  = ${name}
+EOF
+  [ -n "${gpgkey}" ] && \
+    cat >> ${GITCONFIG_LOCAL} <<EOF
+  signingkey = ${gpgkey}
+[commit]
+  gpgsign = true
+[gpg]
+  program = $(which gpg2 || which gpg)
+EOF
+  echo "Base git config written to '${GITCONFIG_LOCAL}'."
+fi

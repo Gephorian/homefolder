@@ -1,6 +1,3 @@
-[user]
-	email = gephorian@gmail.com
-	name = Adam Coleman
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	staged = diff --staged
@@ -9,3 +6,5 @@
 	autoSetupRemote = true
 [init]
 	defaultBranch = main
+[include]
+	path = ~/.gitconfig_local
