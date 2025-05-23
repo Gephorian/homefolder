@@ -1,4 +1,4 @@
-.bashrc.d/*local
+.bashrc.d/*local*
 .vim/bundle/*
 .vim/pack
 # Some things are installed dynamically and should be ignored
