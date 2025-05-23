@@ -1,1 +1,5 @@
-/home/adamcoleman/repos/adamcoleman-branch/bashrcd/ffcd
+ffcd () {
+  DIR="$(find . -type d -print | fzf)"
+  [ -z "${DIR}" ] && return
+  cd ${DIR}
+}
