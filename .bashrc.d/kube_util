@@ -2,15 +2,27 @@ if which kubectl 2>&1 > /dev/null; then
   # Bash completion
   source <(kubectl completion bash)
 
+  if [ -n "$(which stern)" ]; then
+    source <(stern --completion=bash)
+  fi
+
   # Kube namespace tool
   kns(){
-    [ -z "$1" ] && kubectl get ns && return
-    kubectl config set-context --current --namespace ${1:-default}
+    if [ -n "$(which kubens)" ]; then
+      kubens
+    else
+      [ -z "$1" ] && kubectl get ns && return
+      kubectl config set-context --current --namespace ${1:-default}
+    fi
   }
 
   # Kube context tool
   kctx(){
-    [ -z "$1" ] && kubectl config get-contexts && return
-    kubectl config use-context $1
+    if [ -n "$(which kubectx)" ]; then
+      kubectx
+    else
+      [ -z "$1" ] && kubectl config get-contexts && return
+      kubectl config use-context $1
+    fi
   }
 fi
