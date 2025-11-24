@@ -25,4 +25,8 @@ if which kubectl 2>&1 > /dev/null; then
       kubectl config use-context $1
     fi
   }
+
+  # Aliases
+  alias k=kubectl
+  complete -F __start_kubectl k
 fi
