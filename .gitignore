@@ -3,3 +3,4 @@
 .vim/pack
 # Some things are installed dynamically and should be ignored
 .vim/plugin/vim-docker-tools.vim
+.vim/plugin/deoplete.vim

@@ -98,6 +98,47 @@ if [ ! -d ${POLYGLOTDIR} ]; then
   git clone --depth=1 https://github.com/sheerun/vim-polyglot ${POLYGLOTDIR}
 fi
 
+# vim-terraform
+# Terraform language server integration
+TERRAFORMDIR=~/.vim/bundle/vim-terraform
+if [ ! -d ${TERRAFORMDIR} ]; then
+  mkdir -p ${TERRAFORMDIR}
+  git clone --depth=1 https://github.com/hashivim/vim-terraform.git ${TERRAFORMDIR}
+fi
+
+# vim-terraform-completion
+# Terraform language server integration
+TERRAFORMCOMPLETEDIR=~/.vim/bundle/vim-terraform-completion
+if [ ! -d ${TERRAFORMCOMPLETEDIR} ]; then
+  mkdir -p ${TERRAFORMCOMPLETEDIR}
+  git clone --depth=1 https://github.com/juliosueiras/vim-terraform-completion ${TERRAFORMCOMPLETEDIR}
+fi
+
+# vim-hug-neovim-rpc
+# Neovim rpc for vim8+
+HUG=~/.vim/bundle/vim-hug-neovim-rpc
+if [ ! -d ${HUG} ]; then
+  mkdir -p ${HUG}
+  git clone --depth=1 https://github.com/roxma/vim-hug-neovim-rpc ${HUG}
+fi
+
+# yarp
+# Yet Another Remote Plugin Framework for Neovim
+YARP=~/.vim/bundle/yarp
+if [ ! -d ${YARP} ]; then
+  mkdir -p ${YARP}
+  git clone --depth=1 https://github.com/roxma/nvim-yarp ${YARP}
+fi
+
+# deoplete
+# Dark powered asynchronous completion framework for neovim/Vim8
+DEOPLETE=~/.vim/bundle/deoplete
+if [ ! -d ${DEOPLETE} ]; then
+  mkdir -p ${DEOPLETE}
+  git clone --depth=1 https://github.com/Shougo/deoplete.nvim ${DEOPLETE}
+  install_vim_plugin deoplete.vim
+fi
+
 # ale
 # Linting and syntax checking for a LOT of languages
 ALEDIR=~/.vim/bundle/ale
