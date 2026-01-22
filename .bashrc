@@ -111,6 +111,7 @@ shopt -s histappend
 
 # Utility bin dir
 [ -d ~/repos/utility/bin ] && PATH=$PATH:~/repos/utility/bin
+[ -d ~/bin ] && PATH=~/bin:$PATH
 
 PATH="/home/adam/perl5/bin${PATH+:}${PATH}"; export PATH;
 PERL5LIB="/home/adam/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
