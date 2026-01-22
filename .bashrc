@@ -1,9 +1,15 @@
+# Utility bin dir
+[ -d ~/repos/utility/bin ] && PATH=$PATH:~/repos/utility/bin
+[ -d ~/bin ] && PATH=~/bin:$PATH
+
+# bashrc.d
 if [ -d ~/.bashrc.d ]; then
   for file in ~/.bashrc.d/* ; do
 	  . $file
   done
 fi
 
+# Bastion detection
 [[ "$(hostname)" =~ ^bastion ]] && BASTION=true || BASTION=false
 
 # tmux themes must be set in .tmux.conf
@@ -85,6 +91,7 @@ esac
 # Start tmux
 [[ $- == *i* ]] && [[ -z "$TMUX" ]] && [[ "$BASTION" = "false" ]] && exec tmux
 
+# Aliases
 alias ll='ls -lG'
 
 # Show current git branch
@@ -108,10 +115,6 @@ export HISTSIZE=5000
 export HISTFILESIZE=10000
 export HISTCONTRL=ignoreboth
 shopt -s histappend
-
-# Utility bin dir
-[ -d ~/repos/utility/bin ] && PATH=$PATH:~/repos/utility/bin
-[ -d ~/bin ] && PATH=~/bin:$PATH
 
 PATH="/home/adam/perl5/bin${PATH+:}${PATH}"; export PATH;
 PERL5LIB="/home/adam/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
