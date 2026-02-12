@@ -16,5 +16,5 @@ augroup CloseIfOnlyControlWinLeft
 augroup END
 
 map <C-o> :NERDTreeFind<CR>
-map \bb :NERDTreeToggle<CR>
+map \\e :NERDTreeToggle<CR>
 

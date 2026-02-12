@@ -32,6 +32,9 @@ set undodir=~/.undo/,/tmp/
 " yamlfold
 set foldlevelstart=10
 
+" vim-terraform config
+let g:terraform_fmt_on_save=1
+
 " indentline
 let g:indentLine_char = '⦙'
 
